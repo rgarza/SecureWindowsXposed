@@ -29,7 +29,6 @@ public class SecureWindowHook implements IXposedHookLoadPackage, IXposedHookZygo
     public void initZygote(IXposedHookZygoteInit.StartupParam startupParam) throws Throwable {
 
         preferences = new XSharedPreferences(PreferencesActivity.class.getPackage().getName(), "PreferencesActivity");
-        XposedBridge.log(preferences.getFile().getPath());
     }
 
 
