@@ -13,6 +13,7 @@ import com.random.xposed.securewindow.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -66,6 +67,7 @@ public class PreferencesActivity extends ListActivity {
         installedApplications = new ArrayList<PreferencesModel>();
         PackageManager packageManager = getPackageManager();
         List<ApplicationInfo> allApps = packageManager.getInstalledApplications(0);
+        Collections.sort(allApps, new ApplicationInfo.DisplayNameComparator(packageManager));
         Collection<String> securedApps = getSecuredApps();
         if (securedApps == null)
             securedApps = new HashSet<String>();
